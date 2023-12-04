@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Table, Container, Button, Image, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const baseUrl = process.env.REACT_APP_BASE_URL
+// const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:4000";
+const baseUrl = process.env.REACT_APP_BASE_URL 
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
@@ -11,6 +12,7 @@ export default function ProductList() {
 
   const loadProducts = async () => {
     setLoading(true);
+    // console.log(baseUrl)
     const res = await fetch(`${baseUrl}/products`);
     if (!res.ok) {
       throw new Error("Error fetching products");
