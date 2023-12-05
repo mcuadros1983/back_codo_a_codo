@@ -121,3 +121,4 @@ def delete_product(id):
         return {"message": "Product deleted successfully"}
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
